@@ -1,17 +1,14 @@
-.navbar {
 
-    height: 90px;
-}
 .brand-letter-blue {
     color: rgb(236, 54, 54);
     /* color: rgb(236, 54, 54); */
-    font-size: 45px;
+    font-size: 25px;
     vertical-align: middle;
 }
 
 .brand-dot {
 
-    font-size: 55px;
+    font-size: 10px;
     color: rgb(236, 54, 54);
     vertical-align: middle;
 }
@@ -19,7 +16,7 @@
 .middle {
 
     color: rgb(67, 75, 78);
-    font-size: 35px;
+    font-size: 15px;
     vertical-align: middle;
 }
 
