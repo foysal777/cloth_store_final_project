@@ -130,7 +130,7 @@ const handleLogout = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("user_id");
     localStorage.removeItem("username");
-    alert("Do you Want to log out ?")
+    alert("Do You Want To Log Out ?")
     window.location.href = "index.html";
 };
 

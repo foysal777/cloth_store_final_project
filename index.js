@@ -125,9 +125,11 @@ document.addEventListener('DOMContentLoaded', () => {
         li.innerHTML = `
             <div class="review_card ">
                 <img class="review_img" src="${product.image}" alt="not found"> <br><br>
-                <h3 class="text-success"> ${product.name}</h3>
+                  <p class = "text-danger" > ${product.rating}</p>
+                <small class="text-success"> ${product.name}</small>
                 <p> $${product.price}</p>
-                <p class = "text-danger" > ${product.rating}</p>
+              
+                <p class = "text-danger" > ${product.color}</p>
                 <div class="d-flex gap-3">
                     <button class="btn btn-danger btn-sm">Favourite</button>
                     <button class="btn btn-secondary btn-sm" onclick="removeFromWishlist(${product.id})">Remove</button>
@@ -138,6 +140,10 @@ document.addEventListener('DOMContentLoaded', () => {
         wishlistContainer.appendChild(li);
     });
 });
+
+
+
+
 
 
 const handle_search = () => {
