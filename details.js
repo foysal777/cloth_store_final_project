@@ -81,8 +81,16 @@ const add_to_cart = (name, image, price) => {
     
 
     let cart = JSON.parse(localStorage.getItem("cart")) ;
-  
-    cart.push(product);
+    
+    if(cart =! null) {
+
+        cart.push(product);
+    }else {
+
+         cart =[];
+    }
+
+   
    
     localStorage.setItem("cart", JSON.stringify(cart));
  
