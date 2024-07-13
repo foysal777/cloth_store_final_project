@@ -80,17 +80,17 @@ const add_to_cart = (name, image, price) => {
     const product = { name, image, price };
     
 
-    let cart = JSON.parse(localStorage.getItem("cart")) ;
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
     
-    if(cart =! null) {
+    // if(cart =! null) {
 
-        cart.push(product);
-    }else {
+    //     cart.push(product);
+    // }else {
 
-         cart =[];
-    }
+    //      cart =[];
+    // }
 
-   
+    cart.push(product);
    
     localStorage.setItem("cart", JSON.stringify(cart));
  
@@ -99,7 +99,7 @@ const add_to_cart = (name, image, price) => {
 
 const load_cart = () => {
     const container = document.getElementById("add_cart");
-    const cart = JSON.parse(localStorage.getItem("cart")) ;
+    const cart = JSON.parse(localStorage.getItem("cart")) || [] ;
     let totalPrice = 0;
 
     cart.forEach((product, index) => {
@@ -142,7 +142,7 @@ const load_cart = () => {
 };
 
 const removeFromCart = (index) => {
-    let cart = JSON.parse(localStorage.getItem("cart")) ;
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
     cart.splice(index, 1); 
     localStorage.setItem("cart", JSON.stringify(cart));
 };

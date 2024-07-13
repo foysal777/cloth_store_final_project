@@ -94,7 +94,7 @@ const addToWishlist = (product) => {
     .then((res) => res.json())
     .then((data) => {
         console.log(data);
-        let wishlist = JSON.parse(localStorage.getItem('wishlist')) ;
+        let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
         wishlist.push(product);
         localStorage.setItem('wishlist', JSON.stringify(wishlist));
         window.location.href = "wishlist.html";
@@ -107,7 +107,7 @@ const addToWishlist = (product) => {
 };
 
 const removeFromWishlist = (productId) => {
-    let wishlist = JSON.parse(localStorage.getItem('wishlist')) ;
+    let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
     wishlist = wishlist.filter(product => product.id !== productId);
     localStorage.setItem('wishlist', JSON.stringify(wishlist));
     window.location.reload();
@@ -115,7 +115,7 @@ const removeFromWishlist = (productId) => {
 };
 
 document.addEventListener('DOMContentLoaded', () => {
-    let wishlist = JSON.parse(localStorage.getItem('wishlist')) ;
+    let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [] ;
     const wishlistContainer = document.getElementById('wishlist-container');
     
     wishlist.forEach(product => {
