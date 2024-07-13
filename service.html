@@ -1,0 +1,373 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+   
+    <link rel="stylesheet" href="register.css">
+    <link rel="stylesheet" href="index.css">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Nanum+Gothic:wght@400;700;800&family=Playwrite+DE+Grund:wght@100..400&family=Playwrite+IT+Moderna:wght@100..400&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+     <!-- Swiffy slider  -->
+     <link href="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/css/swiffy-slider.min.css" rel="stylesheet" crossorigin="anonymous">
+    <title>Fronted.com</title>
+</head>
+<style>
+    body {
+       margin-top: 90px;
+   }
+   .nav-link  {
+  
+  color: black!important;
+}
+.logo_class{
+
+
+  height: 90px !important;
+
+}
+.service {
+    background-color: rgb(236, 54, 54);
+    /* height: 30rem; */
+   
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+   padding-top: 90px;
+ 
+    position: relative;
+    z-index: 1;
+}
+
+.service h1 {
+    margin: 0; /* Remove default margin */
+    color: rgb(0, 0, 0); /* Change text color for better readability */
+    font-size: 7rem; 
+    /* Optional: Adjust font size for better appearance */
+}
+.return1 {
+    padding-top: 240px; /* Optional: Add padding to the section */
+}
+
+.return .d-flex {
+    background-color: rgb(255, 255, 255);
+ 
+    flex: 0 0 auto; /* Ensures that the div doesn't grow or shrink */
+    padding: 10px;
+    box-sizing: border-box;
+    text-align: center;
+    color: rgb(0, 0, 0);
+    flex: wrap;
+    /* Change text color for better readability */
+}
+
+.return .icon2 {
+    font-size: 2.5em;
+    margin-bottom: 5px;
+}
+
+.return {
+   
+    text-align: center;
+    justify-content: center;
+    padding-top: 10px !important;
+}
+
+
+ .one1 {
+    height: 220px;
+    width: 200px;
+    border-radius: 5px;
+    background-color: #f0f2f3;
+    border: 2px solid rgb(0, 0, 0);
+    
+
+
+}
+.two1 {
+    height: 220px;
+    width: 200px;
+    background-color: #f0f2f3;
+    border: 2px solid rgb(0, 0, 0);
+    border-radius: 5px;
+}
+.three1 {
+    height: 220px;
+    width: 200px;
+    background-color: #f0f2f3;
+    border: 2px solid rgb(0, 0, 0);
+    border-radius: 5px;
+}
+.four1 {
+    height: 220px;
+    width: 200px;
+    background-color: #f0f2f3;
+    border: 2px solid rgb(0, 0, 0);
+    border-radius: 5px;
+}
+
+
+.return1{
+
+    padding-bottom: 200px;
+    position: relative;
+    z-index: 5;
+}
+      
+   .mission{
+
+    padding-top: 300px;
+   }   
+
+
+
+   .clear {
+    clear: both;
+}
+
+.sliders{
+
+  
+
+    background-color:transparent;
+    
+}
+
+
+.logo_img {
+
+    height: 100px!important;
+    width: 100px !important ;
+}
+      </style>
+<body>
+    <header>
+
+      
+        <!-- navbar -->
+        <nav class="navbar navbar-expand-lg navbar-light bg_nav shadow-sm p-3 mb-5 bg-body rounded fixed-top">
+            <div class="container-fluid ">
+                <a class="navbar-brand" href="index.html"><span class="brand-letter-blue">W</span><span
+                        class="middle">inter</span> <span class="brand-dot">.</span></a>
+                <p id="current_users" class="text-center"></p>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="add_cart.html">Cart</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="service.html">Services</a>
+                        </li>
+                        <li>
+                            <div class="dropdown">
+                                <a class="btn dropdown-toggle fw-bold fs-5" href="#" role="button" id="dropdownMenuLink"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    Account
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink" id="navbarMenu">
+
+                                    <!-- <li><a id="registerLink" class="dropdown-item" href="register.html">Register</a></li>
+                                    <li><a id="loginLink" class="dropdown-item" href="login.html">Log in</a></li>
+                                    <li><a id="logoutLink" onclick="handleLogOut()" class="dropdown-item" href="#" style="display: none;">Log out</a></li> -->
+
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                    <form class="d-flex">
+                        <button class="btn btn-danger" type="submit">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+        
+
+
+    </header>
+    <main>
+
+    </main>
+       <section class="service">
+  
+                 <h1>Our Services</h1> 
+
+
+                 <div class="return1">
+                    <div class="return d-flex flex-wrap gap-3 justify-content-center text-center align-item-center">
+                        <div class="one1 col-12 col-sm-6 col-md-4 col-lg-3 p-4">
+                            <i class="icon2 fa-solid fa-shield"></i>
+                            <p class="fw-bold fs-4">Security</p>
+                            <p class="text-secondary">100% Secure Payment</p>
+                        </div>
+                        <div class="two1 col-12 col-sm-6 col-md-4 col-lg-3 p-4">
+                            <i class="icon2 fa-solid fa-headphones"></i>
+                            <p class="fw-bold fs-4">24/7 Support</p>
+                            <p class="text-secondary">Dedicated Support</p>
+                        </div>
+                        <div class="three1 col-12 col-sm-6 col-md-4 col-lg-3 p-4">
+                            <i class="icon2 fa-solid fa-rotate-right"></i>
+                            <p class="fw-bold fs-4">Return Policy</p>
+                            <p class="text-secondary">If goods have a problem</p>
+                        </div>
+                        <div class="four1 col-12 col-sm-6 col-md-4 col-lg-3 p-4">
+                            <i class="icon2 fa-solid fa-truck-fast"></i>
+                            <p class="fw-bold fs-4">Free Delivery</p>
+                            <p class="text-secondary">For all orders over $50</p>
+                        </div>
+                    </div>
+                </div>
+                
+
+       </section>
+        
+       <div class="clear"></div>
+       <!-- 2nd section  -->
+        <section class="mission">
+
+            <div class="container px-4">
+                <div class="row gx-5">
+                  <div class="col">
+                   <div class="p-3  ">
+
+                     <img src="images/our-mission.jpg" alt="" height="600px">
+                   </div>
+                  </div>
+                  <div class="col">
+                    <div class="p-3 border ">
+                        <h1 class="text-danger">Your Personal Styling Team Always Here</h1>
+                        
+                       <p> nteger at faucibus urna. Nullam condimentum leo id elit sagittis auctor. Curabitur elementum nunc a leo imperdiet, nec elementum diam elementum. Etiam elementum euismod commodo. Proin eleifend eget quam ut efficitur. Mauris a accumsan mauris. Phasellus egestas et risus sit amet hendrerit. Nulla facilisi.
+
+                        Elementum diam elementum. Etiam elementum euismod commodo. Proin eleifend eget quam ut efficitur. Mauris a accumsan mauris. Phasellus egestas et risus sit amet hendrerit. Nulla facilisi.
+                    </p> 
+                    <button class="btn btn-success">View More</button>
+                    
+                    </div>
+                   
+                       
+                    </div>
+                </div>
+              </div>
+        </section>
+
+        <!-- slider  -->
+   <section class="sliders">
+
+    <h1 class="text-center text-danger pt-5 pb-5" > <u>Ours Related Company  </u></h1>
+    <div class="swiffy-slider slider-item-show4 slider-nav-outside  slider-nav-sm slider-nav-visible slider-nav-page slider-item-snapstart slider-nav-autoplay slider-nav-autopause slider-item-ratio slider-item-ratio-contain slider-item-ratio-32x9 shadow-lg py-3 py-lg-4" data-slider-nav-autoplay-interval="2000">
+        <div class="logo_class  slider-container ">
+
+            <div class="logo_img "><img   src="images/l11.png" alt="..."    ></div>
+            <div class="logo_img"> <img  src="images/logo_1_prev_ui.png" loading="lazy" alt="..."  ></div>
+            <div class="logo_img" ><img src="images/logo_3_prev_ui.png" loading="lazy" alt="..." ></div>
+            <div  class="logo_img"><img   src="images/logo_4_prev_ui.png" loading="lazy" alt="..." ></div>
+            <div  class="logo_img"><img   src="images/logo_6_prev_ui.png" loading="lazy" alt="..." ></div>
+            <div  class="logo_img"><img src="images/logo_8.png" loading="lazy" alt="..."  ></div>
+          
+        </div>
+    
+        <button type="button" class="slider-nav" aria-label="Go left"></button>
+        <button type="button" class="slider-nav slider-nav-next" aria-label="Go left"></button>
+    
+    </div>
+
+   </section>
+   <!-- Footer  -->
+   <footer class="footer mt-5">
+    <div class="top-footer">
+        <div class="top container">
+            <div class="row">
+
+                <div class="col-md-3 col-sm-6 footer-column">
+                    <h4 class="text-white">Winter Company </h4>
+                    <ul>
+                        <p class="text-black">Winter Technologies is your go-to place for building websites. We
+                            offer a wide variety of website templates from various creators to help you design a
+                            unique and professional site. Let Winter Technologies help you bring your website ideas
+                            to life.</p>
+                    </ul>
+                </div>
+
+
+
+
+
+                <div class="col-md-3 col-sm-6 footer-column">
+                    <h4 class=" text-white">Useful Link </h4>
+                    <ul class="use">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Listing</a></li>
+                        <li><a href="#">Product Details</a></li>
+                        <li><a href="#">Terms and Condition</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 col-sm-6 footer-column">
+                    <h4 class="text-white">Contact Us</h4>
+                    <ul>
+                        <p class="text-black">Connect with us to give wings to your business.</p>
+                        <li><a href="#">winter434@gmail.com</a></li>
+
+                    </ul>
+                </div>
+
+                <div class="col-md-3 col-sm-6 footer-column">
+                    <h4 class="text-white">Follow Us</h4>
+                    <ul class="social-icons d-flex  ">
+                        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                        <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fab fa-youtube"></i></a></li>
+                        <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+
+                    </ul>
+                    <input type="text" name="" id="" placeholder="Write a Message">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bottom-footer">
+        <div class="all  text-center">
+            <p>All Rights Reserved Copyright &copy; 2024</p>
+            <p class="text-center text-secondary" >Winter. Limited</p>
+                <p class="text-center text-secondary" > ◅ Foysal Hossain Munna ▻ </p>
+        </div>
+    </div>
+</footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/js/swiffy-slider.min.js" crossorigin="anonymous" defer></script>
+           
+        <script src="index.js"></script>
+        <script src="auth.js"></script>
+        <script src="logout.js"></script>
+       
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    -->
+</body>
+
+</html>

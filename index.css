@@ -1,0 +1,438 @@
+.navbar {
+
+    height: 90px;
+}
+.brand-letter-blue {
+    color: rgb(236, 54, 54);
+    /* color: rgb(236, 54, 54); */
+    font-size: 45px;
+    vertical-align: middle;
+}
+
+.brand-dot {
+
+    font-size: 55px;
+    color: rgb(236, 54, 54);
+    vertical-align: middle;
+}
+
+.middle {
+
+    color: rgb(67, 75, 78);
+    font-size: 35px;
+    vertical-align: middle;
+}
+
+.bg_nav {
+    background-color: rgb(255, 255, 255) !important;
+}
+
+body {
+
+    background-color: rgb(231, 233, 233) !important;
+    font-family: "Josefin Sans", sans-serif !important;
+    font-optical-sizing: auto;
+    font-weight: 700 !important;
+    font-style: normal;
+    font-style: normal;
+}
+
+.nav-link:hover {
+    color: rgb(228, 43, 43) !important;
+}
+
+
+
+.nav-link {
+    font-size: 20px;
+    color: black !important;
+}
+
+.immmg {
+   width: 400px;
+    height: 400px;
+}
+
+.text {
+    margin-top: 50px;
+    padding: 50px;
+}
+
+.embarce {
+
+    color: rgb(0, 0, 0);
+    font-size: 2rem;
+}
+
+.extra {
+    color: rgb(236, 54, 54);
+}
+
+.extras {
+    color: rgb(79, 184, 245);
+}
+
+.explore:hover {
+    background-color: rgb(30, 110, 175) !important;
+    color: rgb(10, 10, 10);
+}
+
+.navbar-nav .nav-item {
+    margin-left: 15px;
+}
+
+.embarce {
+    font-size: 2rem;
+}
+
+.extra,
+.extras {
+    font-weight: bold;
+}
+
+@media (min-width: 768px) {
+    .embarce {
+        font-size: 3rem;
+    }
+}
+
+@media (min-width: 992px) {
+    .embarce {
+        font-size: 4rem;
+    }
+}
+
+.ratio img:hover {
+    transform: scale(1.1); 
+}
+
+.ratio img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease-in-out; 
+}
+
+.dyimg {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    transition: transform 0.6s ease-in-out; 
+}
+
+.dyimg  img{
+    max-width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+
+.dyimg:hover {
+    transform: scale(1.1); 
+}
+
+.btn:hover{
+
+  background-color: rgb(236, 54, 54) !important;
+}
+.button{
+     
+    gap: 140px !important;
+}
+.nodata{
+
+    display: none ;
+}
+.product_card {
+    padding: 2rem;
+ 
+    margin: auto;
+}
+#nodata {
+    text-align: center; 
+}
+
+#nodata img {
+    display: block; 
+    margin: 0 auto;
+}
+
+#loading{
+
+    text-align: center;
+}
+#loading{
+    display: block;
+    margin:  0 auto;
+}
+
+
+.product_card h1 {
+    margin-bottom: 1rem;
+
+}
+
+.slider-container {
+    display: flex;
+    overflow: hidden;
+    padding: 0;
+    height: 600px !important; 
+    list-style: none;
+}
+
+.slider-container li {
+    flex: 0 0 calc(100% / 3); 
+    padding: 0.5rem;
+    box-sizing: border-box;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.ratio {
+    position: relative;
+    width: 100%;
+    padding-top: 100%; 
+}
+
+
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
+}
+
+.card-body h3,
+.card-body p {
+    margin: 0.5rem 0;
+}
+
+.btn {
+    align-self: start;
+}
+
+/* Responsive styles */
+@media (max-width: 1200px) {
+    .slider-container li {
+        flex: 0 0 calc(100% / 2); 
+    }
+}
+
+@media (max-width: 768px) {
+    .slider-container li {
+        flex: 0 0 100%;
+    }
+
+    .card-body {
+        padding: 1rem;
+    }
+
+    .product_card {
+        padding: 1rem;
+    }
+
+    .product_card h1 {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .product_card h1 {
+        font-size: 1.25rem;
+    }
+
+    .card-body h3,
+    .card-body p {
+        font-size: 0.875rem;
+    }
+
+    .btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.875rem;
+    }
+}
+
+/* Footer parrt  */
+
+
+
+
+/* styles.css */
+
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.content {
+    flex: 1;
+}
+
+.footer {
+    background-color: rgb(207, 12, 12);
+    list-style: none;
+   
+}
+.social-icons {
+    display: flex;
+    gap: 15px; 
+   
+    font-size: 25px;
+
+}
+.social-icons li a {
+    color: #000000;
+
+}
+
+.footer ul {
+    list-style: none; 
+    padding: 0;
+    margin: 0;
+}
+
+.top-footer {
+    padding: 50px 0;
+   
+}
+.top{
+
+    margin-top: 200px;
+}
+.bottom-footer {
+    background-color: #000000;
+    padding: 10px 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    
+}
+.all{
+     margin-top: 20px;
+    color: white;
+    margin: auto;
+}
+.footer a {
+    text-decoration: none;
+
+    color: white; 
+}
+.use li a{
+
+    color: #000000;
+}
+
+
+
+.myphoto {
+    max-width: 100%;
+ 
+    margin-top: 200px;
+}
+
+.card_body {
+    padding: 20px;
+    margin-top: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.text-primary {
+    color: #007bff;
+}
+
+.text-danger {
+    color: rgb(236, 54, 54);
+}
+
+.btn-danger {
+    background-color: rgb(236, 54, 54);
+    border-color: rgb(236, 54, 54);
+}
+.return .icon2 {
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+/* contact part  */
+.contact-form {
+    background: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    width: 100%;
+    max-width: 600px;
+    box-sizing: border-box; 
+}
+.contact-form h2 {
+    margin-bottom: 15px;
+    font-size: 24px;
+    color: #333;
+    text-align: center;
+}
+.contact-form input, 
+.contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    border-color: red;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box; 
+}
+.contact-form textarea {
+    height: 100px;
+    border-color: red;
+}
+
+.contact-form button {
+    width: 100%;
+    padding: 10px;
+    background: red;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+.contact-form button:hover {
+    background: rgb(26, 172, 70);
+} .contact_us {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+.contact-form input[name="name"],
+.contact-form input[name="email"] {
+    border-color: red;
+}
+.review_card{
+
+
+    box-shadow: 4px 4px 8px gray;
+    padding: 10px;
+    align-items: center;
+    text-align: center;
+}
+.review_img{
+
+    height: 100px;
+    
+}
