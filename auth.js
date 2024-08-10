@@ -48,7 +48,7 @@ const handleRegister = (event) => {
 
 
 
-// document.getElementById("registerForm").addEventListener("submit", handleRegister);
+
 
 
 
