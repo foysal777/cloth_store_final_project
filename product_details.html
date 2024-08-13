@@ -69,7 +69,13 @@
    
 }
 
-             
+.star-rating option {
+            color: red; 
+        }  
+        body{
+
+            overflow-x: hidden !important; 
+        }
 
         
     </style>
@@ -159,7 +165,28 @@
 
 
 
+  
+        <!-- user review section  -->
 
+      <section class="text-center justify-content-center align-items-center ">
+            <h1 class="text-danger"><u>Review Now</u></h1>
+            
+            <label for="star-rating" class="d-block mt-4">Rate the product:</label>
+            <select name="star_rating" id="star-rating" class="form-control star-rating d-inline-block w-auto">
+                <option value="★☆☆☆☆">★☆☆☆☆</option>
+                <option value="★★☆☆☆">★★☆☆☆</option>
+                <option value="★★★☆☆">★★★☆☆</option>
+                <option value="★★★★☆">★★★★☆</option>
+                <option value="★★★★★">★★★★★</option>
+            </select>
+            
+            <label for="comment" class="d-block mt-4">Leave a comment:</label>
+            <textarea name="comment" id="comment" rows="4" class="form-control w-50 mt-2 justify-content-center align-items-center mx-auto" placeholder="Write your review here..."></textarea> <br>
+          <button class="btn btn-danger">Submit</button>
+        
+        
+        </section> 
+        
 
         <!-- Customer Review  -->
 

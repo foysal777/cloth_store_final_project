@@ -86,6 +86,8 @@ const handleLogin = (event) => {
           NameElement.innerHTML = `<span> Current User : ${username}</span>`;
   
             errorElement.innerText = "Login Successfully Completed";
+            window.location.href = 'index.html'; 
+            
           }  else {
   
             errorElement.innerText = "Login Failed , Give Valid Information or Check Email Conformation";
