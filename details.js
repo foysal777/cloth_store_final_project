@@ -147,5 +147,43 @@ const removeFromCart = (index) => {
 window.onload = load_cart;
 
 
+
+// for Review 
+
+document.getElementById('review-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    let name = document.getElementById('name').value;
+    let starRating = document.getElementById('star-rating').value;
+    let comment = document.getElementById('comment').value;
+
+    fetch('/api/reviews/', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRFToken': '{{ csrf_token }}'
+        },
+        body: JSON.stringify({
+            name: name,
+            star_rating: starRating,
+            comment: comment
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        let reviewContainer = document.getElementById('reviews-container');
+        let newReview = `
+            <div class="review mt-3">
+                <p><strong>${data.name}</strong> rated the product <strong>${data.star_rating}</strong> stars</p>
+                <p>${data.comment}</p>
+            </div>
+        `;
+        reviewContainer.innerHTML += newReview;
+        document.getElementById('review-form').reset();
+    })
+    .catch(error => console.error('Error:', error));
+});
+
+
 load_review();
 getparams();

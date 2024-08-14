@@ -33,6 +33,7 @@ const handleRegister = (event) => {
               console.log(data);
               alert("Check your email.");
               document.getElementById("error").innerText = "Registration Successful. Check your email.";
+              window.location.href = 'login.html'; 
           })
           .catch((error) => {
               console.error("Error:", error);

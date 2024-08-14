@@ -76,7 +76,13 @@
 
             overflow-x: hidden !important; 
         }
+   .details{
 
+    overflow-x: hidden;
+   }
+   .rev{
+    overflow-x: hidden;
+   }
         
     </style>
 </head>
@@ -84,7 +90,7 @@
 <body class="mt-4">
     <header>
         <!-- navbar -->
-        <nav class="navbar navbar-expand-lg navbar-light bg_nav shadow-sm p-3 mb-5 bg-body rounded fixed-top">
+        <nav class="navbar navbar-expand-lg navbar-light bg_nav shadow-sm p-3 mb-5 bg-body rounded fixed-top ">
             <div class="container-fluid ">
                 <a class="navbar-brand" href="index.html"><span class="brand-letter-blue">W</span><span
                         class="middle">inter</span> <span class="brand-dot">.</span></a>
@@ -136,7 +142,7 @@
 
         <!-- product Details  -->
 
-        <div id="details" class="details d-flex  flex-wrap container">
+        <div id="details" class="details d-flex  flex-wrap container ">
 
             <!-- <div class="photo_div col-lg-6 ">
                 <img src="images/product-6.jpg" alt="not fond" height="500px">
@@ -168,24 +174,31 @@
   
         <!-- user review section  -->
 
-      <section class="text-center justify-content-center align-items-center ">
+        <section class="rev text-center justify-content-center align-items-center">
             <h1 class="text-danger"><u>Review Now</u></h1>
-            
-            <label for="star-rating" class="d-block mt-4">Rate the product:</label>
-            <select name="star_rating" id="star-rating" class="form-control star-rating d-inline-block w-auto">
-                <option value="★☆☆☆☆">★☆☆☆☆</option>
-                <option value="★★☆☆☆">★★☆☆☆</option>
-                <option value="★★★☆☆">★★★☆☆</option>
-                <option value="★★★★☆">★★★★☆</option>
-                <option value="★★★★★">★★★★★</option>
-            </select>
-            
-            <label for="comment" class="d-block mt-4">Leave a comment:</label>
-            <textarea name="comment" id="comment" rows="4" class="form-control w-50 mt-2 justify-content-center align-items-center mx-auto" placeholder="Write your review here..."></textarea> <br>
-          <button class="btn btn-danger">Submit</button>
+            <form id="review-form">
+                <label for="name" class="d-block mt-4">Enter your name:</label>
+                <input type="text" id="name" name="name" class="form-control w-50 mt-2 mx-auto" placeholder="Your Name" required>
         
+                <label for="star-rating" class="d-block mt-4">Rate the product:</label>
+                <select name="star_rating" id="star-rating" class="form-control d-inline-block w-auto" required>
+                    <option value="1">★☆☆☆☆</option>
+                    <option value="2">★★☆☆☆</option>
+                    <option value="3">★★★☆☆</option>
+                    <option value="4">★★★★☆</option>
+                    <option value="5">★★★★★</option>
+                </select>
         
-        </section> 
+                <label for="comment" class="d-block mt-4">Leave a comment:</label>
+                <textarea name="comment" id="comment" rows="4" class="form-control w-50 mt-2 mx-auto" placeholder="Write your review here..." required></textarea> 
+        
+                <button type="submit" class="btn btn-danger mt-4">Submit</button>
+            </form>
+        
+            <div id="reviews-container" class="mt-5">
+                <h2>Recent Reviews</h2>
+            </div>
+        </section>
         
 
         <!-- Customer Review  -->
