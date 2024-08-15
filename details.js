@@ -150,38 +150,107 @@ window.onload = load_cart;
 
 // for Review 
 
-document.getElementById('review-form').addEventListener('submit', function(event) {
-    event.preventDefault();
 
-    let name = document.getElementById('name').value;
-    let starRating = document.getElementById('star-rating').value;
-    let comment = document.getElementById('comment').value;
-
-    fetch('/api/reviews/', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'X-CSRFToken': '{{ csrf_token }}'
-        },
-        body: JSON.stringify({
-            name: name,
-            star_rating: starRating,
-            comment: comment
+document.addEventListener('DOMContentLoaded', function() {
+    // Function to fetch and display the average rating
+    function fetchAverageRating() {
+        fetch('https://cloth-store-project-backend-api.onrender.com/shop/average_rating/')
+        .then(response => response.json())
+        .then(data => {
+            const avgRatingContainer = document.getElementById('average-rating');
+            avgRatingContainer.innerHTML = `<p class = text-danger display-2 >Average Rating: <strong>${data.average_rating.toFixed(2)}</strong> stars</p>`;
         })
-    })
+        .catch(error => console.error('Error fetching average rating:', error));
+    }
+
+  
+// store 
+
+function fetchReviews() {
+    fetch('https://cloth-store-project-backend-api.onrender.com/shop/userreviews/')
     .then(response => response.json())
     .then(data => {
-        let reviewContainer = document.getElementById('reviews-container');
-        let newReview = `
-            <div class="review mt-3">
-                <p><strong>${data.name}</strong> rated the product <strong>${data.star_rating}</strong> stars</p>
-                <p>${data.comment}</p>
-            </div>
-        `;
-        reviewContainer.innerHTML += newReview;
-        document.getElementById('review-form').reset();
+        const reviewsContainer = document.getElementById('reviews-container');
+        reviewsContainer.innerHTML = '<h2 class=text-danger >Recent Reviews</h2>'; 
+        data.forEach(review => {
+            const newReview = `
+            
+                <div class="review mt-3 border border-2 border-danger p-3">
+                    <p>Name: <strong>${review.name}</strong> <br> Rating: <strong class = text-danger>${review.star_rating}</strong> stars</p> 
+                   comment:<p class = text-danger>${review.comment}</p>
+                </div>
+            `;
+            reviewsContainer.innerHTML += newReview;
+        });
     })
-    .catch(error => console.error('Error:', error));
+    .catch(error => console.error('Error fetching reviews:', error));
+}
+
+// Fetch and display the average rating and reviews on page load
+fetchAverageRating();
+fetchReviews();
+
+
+
+
+
+
+
+    // Handle form submission
+    document.getElementById('review-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        let name = document.getElementById('name').value;
+        let starRating = document.getElementById('star-rating').value;
+        let comment = document.getElementById('comment').value;
+
+        let csrftoken = getCookie('csrftoken');
+
+        fetch('https://cloth-store-project-backend-api.onrender.com/shop/userreviews/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRFToken': csrftoken
+            },
+            body: JSON.stringify({
+                name: name,
+                star_rating: starRating,
+                comment: comment
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            let reviewContainer = document.getElementById('reviews-container');
+            let newReview = `
+                <div class="review mt-3">
+                    <p>Name: <strong>${data.name}</strong> <br> Rating: <strong class=text-danger > ${data.star_rating}</strong> stars</p> <br>
+                    <p>${data.comment}</p>
+                </div>
+            `;
+            reviewContainer.innerHTML += newReview;
+            document.getElementById('review-form').reset();
+
+            // Fetch and update the average rating
+            fetchAverageRating();
+        })
+        .catch(error => console.error('Error:', error));
+    });
+
+    // cokkies
+    function getCookie(name) {
+        let cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+            const cookies = document.cookie.split(';');
+            for (let i = 0; i < cookies.length; i++) {
+                const cookie = cookies[i].trim();
+                if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    }
 });
 
 

@@ -177,6 +177,33 @@ document.getElementById('contact-form').addEventListener('submit', function(even
 });
 
 
+// sorting 
+
+
+function handle_sort() {
+    // Get all the cards in the container
+    const container = document.getElementById('card_contain');
+    const cards = Array.from(container.getElementsByClassName('card'));
+
+    // Sort the cards by price 
+    cards.sort((a, b) => {
+        const priceA = parseFloat(a.querySelector('p').textContent.replace('$', ''));
+        const priceB = parseFloat(b.querySelector('p').textContent.replace('$', ''));
+        return priceA - priceB;
+    });
+
+    // Clear the container
+    container.innerHTML = '';
+
+    // Append the sorted cards back into the container
+    cards.forEach(card => container.appendChild(card));
+}
+
+// Attach the handle_sort function to the Sort button
+document.querySelector('.btn.btn-primary').addEventListener('click', handle_sort);
+
+
+
 loadColor();
 
 load_product();

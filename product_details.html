@@ -174,29 +174,38 @@
   
         <!-- user review section  -->
 
-        <section class="rev text-center justify-content-center align-items-center">
-            <h1 class="text-danger"><u>Review Now</u></h1>
-            <form id="review-form">
-                <label for="name" class="d-block mt-4">Enter your name:</label>
-                <input type="text" id="name" name="name" class="form-control w-50 mt-2 mx-auto" placeholder="Your Name" required>
+        <section class="rev text-center justify-content-center align-items-center p-10">
+            <div class="">
+                <h1 class="text-danger"><u>Review Now</u></h1>
+                <form id="review-form">
+                    <label for="name" class="d-block mt-4">Enter your name:</label>
+                    <input type="text" id="name" name="name" class="form-control w-50 mt-2 mx-auto" placeholder="Your Name" required>
         
-                <label for="star-rating" class="d-block mt-4">Rate the product:</label>
-                <select name="star_rating" id="star-rating" class="form-control d-inline-block w-auto" required>
-                    <option value="1">★☆☆☆☆</option>
-                    <option value="2">★★☆☆☆</option>
-                    <option value="3">★★★☆☆</option>
-                    <option value="4">★★★★☆</option>
-                    <option value="5">★★★★★</option>
-                </select>
+                    <label for="star-rating" class="d-block mt-4">Rate the product:</label>
+                    <select name="star_rating" id="star-rating" class="form-control d-inline-block w-auto" required>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                    
+                    </select>
         
-                <label for="comment" class="d-block mt-4">Leave a comment:</label>
-                <textarea name="comment" id="comment" rows="4" class="form-control w-50 mt-2 mx-auto" placeholder="Write your review here..." required></textarea> 
+                    <label for="comment" class="d-block mt-4">Leave a comment:</label>
+                    <textarea name="comment" id="comment" rows="4" class="form-control w-50 mt-2 mx-auto" placeholder="Write your review here..." required></textarea> 
         
-                <button type="submit" class="btn btn-danger mt-4">Submit</button>
-            </form>
+                    <button type="submit" class="btn btn-danger mt-4">Submit</button>
+                </form>
         
-            <div id="reviews-container" class="mt-5">
-                <h2>Recent Reviews</h2>
+                <!-- Average Rating Section -->
+                <div id="average-rating" class="mt-5">
+                 
+                    <!-- Average rating will be displayed here -->
+                </div>
+                        
+                <div id="reviews-container" class="mt-5 text-center p-5 ">
+                    <h2 class="text-danger text-center"> Recent Reviews</h2>
+                  
+                </div>
             </div>
         </section>
         
