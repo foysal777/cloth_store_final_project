@@ -147,11 +147,32 @@
 }
 
 
+
 .logo_img {
 
-    height: 100px!important;
+    height: 100px !important;
     width: 100px !important ;
 }
+
+.responsive-heading {
+    font-size: 50px; /* Default for small devices */
+  }
+
+  /* For medium devices (≥ 576px) */
+  @media (min-width: 576px) {
+    .responsive-heading {
+      font-size: 80px;
+    }
+  }
+
+  /* For large devices (≥ 768px) */
+  @media (min-width: 768px) {
+    .responsive-heading {
+      font-size: 100px;
+    }
+  }
+
+
       </style>
 <body>
     <header>
@@ -212,7 +233,7 @@
     </main>
        <section class="service">
   
-                 <h1>Our Services</h1> 
+        <p class="responsive-heading">Our Services</p>
 
 
                  <div class="return1">
@@ -252,7 +273,7 @@
                   <div class="col">
                    <div class="p-3  ">
 
-                     <img src="images/our-mission.jpg" alt="" height="600px">
+                     <img src="images/our-mission.jpg" alt="" height="400px">
                    </div>
                   </div>
                   <div class="col">
