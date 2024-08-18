@@ -16,37 +16,38 @@ const handleRegister = (event) => {
       confirm_password,
   };
 
-  if (password === confirm_password) {
-      document.getElementById("error").innerText = "";
-      
-      const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@.#$!%*?&^])[A-Za-z\d@.#$!%*?&]{8,15}$/;
-      if (passwordPattern.test(password)) {
-          console.log("info");
-           
-          fetch("https://cloth-store-project-backend-api.onrender.com/shop/register/", {
-              method: "POST",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify(info),
-          })
-          .then((res) => res.json())
-          .then((data) => {
-              console.log(data);
-              alert("Check your email.");
-              document.getElementById("error").innerText = "Registration Successful. Check your email.";
-              window.location.href = 'login.html'; 
-          })
-          .catch((error) => {
-              console.error("Error:", error);
-              document.getElementById("error").innerText = "Registration failed. Please try again.";
-          });
-      } else {
-          document.getElementById("error").innerText = "Password must contain eight characters, at least one letter, one number, and one special character.";
-      }
-  } else {
-      document.getElementById("error").innerText = "Password and Confirm Password Doesn't Match.";
-  }
-};
 
+  if (password === confirm_password) {
+    document.getElementById("error").innerText = "";
+    
+    const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@.#$!%*?&^])[A-Za-z\d@.#$!%*?&]{8,15}$/;
+    if (passwordPattern.test(password)) {
+        fetch("https://cloth-store-project-backend-api.onrender.com/shop/register/", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(info),
+        })
+        .then((res) => res.json())
+        .then((data) => {
+            if (data.error && data.error.includes("email already exists")) {
+                document.getElementById("error").innerText = "Email already exists.";
+            } else {
+                alert("Check your email.");
+                document.getElementById("error").innerText = "Registration Successful. Check your email.";
+                window.location.href = 'login.html'; 
+            }
+        })
+        .catch((error) => {
+            console.error("Error:", error);
+            document.getElementById("error").innerText = "Registration failed. Please try again.";
+        });
+    } else {
+        document.getElementById("error").innerText = "Password must contain eight characters, at least one letter, one number, and one special character.";
+    }
+} else {
+    document.getElementById("error").innerText = "Password and Confirm Password Doesn't Match.";
+}
+};
 
 
 
