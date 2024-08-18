@@ -16,6 +16,8 @@ const handleRegister = (event) => {
       confirm_password,
   };
 
+  console.log(JSON.stringify(info))
+
 
   if (password === confirm_password) {
     document.getElementById("error").innerText = "";
@@ -29,17 +31,19 @@ const handleRegister = (event) => {
         })
         .then((res) => res.json())
         .then((data) => {
-            if (data.error && data.error.includes("email already exists")) {
-                document.getElementById("error").innerText = "Email already exists.";
-            } else {
+             console.log(data)
+             if(data.error) {
+                document.getElementById("error").innerText = data.error
+             }
+            else {
                 alert("Check your email.");
-                document.getElementById("error").innerText = "Registration Successful. Check your email.";
+                 document.getElementById("error").innerText = "Registration Successful. Check your email.";
                 window.location.href = 'login.html'; 
             }
-        })
+         }
+)
         .catch((error) => {
             console.error("Error:", error);
-            document.getElementById("error").innerText = "Registration failed. Please try again.";
         });
     } else {
         document.getElementById("error").innerText = "Password must contain eight characters, at least one letter, one number, and one special character.";
