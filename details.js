@@ -1,7 +1,7 @@
 const getparams = () => {
     const param = new URLSearchParams(window.location.search).get("productId");
 
-    fetch(`https://cloth-store-project-backend-api.onrender.com/shop/product/${param}`)
+    fetch(`https://cloth-store-backend-api.vercel.app/shop/product/${param}`)
         .then((res) => res.json())
         .then((data) => display_details(data));
 
@@ -45,7 +45,7 @@ const display_details = (product) => {
 // Review Part *************
 
 const load_review = () => {
-    fetch("https://cloth-store-project-backend-api.onrender.com/shop/Review/")
+    fetch("https://cloth-store-backend-api.vercel.app/shop/Review/")
         .then((res) => res.json())
         .then((data) => display_review(data))
         .catch((err) => console.log(err));
@@ -154,7 +154,7 @@ window.onload = load_cart;
 document.addEventListener('DOMContentLoaded', function() {
     // Function to fetch and display the average rating
     function fetchAverageRating() {
-        fetch('https://cloth-store-project-backend-api.onrender.com/shop/average_rating/')
+        fetch('https://cloth-store-backend-api.vercel.app/shop/average_rating/')
         .then(response => response.json())
         .then(data => {
             const avgRatingContainer = document.getElementById('average-rating');
@@ -167,7 +167,7 @@ document.addEventListener('DOMContentLoaded', function() {
 // store 
 
 function fetchReviews() {
-    fetch('https://cloth-store-project-backend-api.onrender.com/shop/userreviews/')
+    fetch('https://cloth-store-backend-api.vercel.app/shop/userreviews/')
     .then(response => response.json())
     .then(data => {
         const reviewsContainer = document.getElementById('reviews-container');
@@ -206,7 +206,7 @@ fetchReviews();
 
         let csrftoken = getCookie('csrftoken');
 
-        fetch('https://cloth-store-project-backend-api.onrender.com/shop/userreviews/', {
+        fetch('https://cloth-store-backend-api.vercel.app/shop/userreviews/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

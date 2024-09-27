@@ -1,7 +1,7 @@
 const load_product = (name) => {
 
     document.getElementById("card_contain").innerHTML = "";
-    fetch(`https://cloth-store-project-backend-api.onrender.com/shop/product/?name=${name ? name : ""}`)
+    fetch(`https://cloth-store-backend-api.vercel.app/shop/product/?name=${name ? name : ""}`)
         .then((res) => res.json())
         .then((data) => {
         console.log(data);
@@ -23,7 +23,7 @@ const load_product = (name) => {
 const load_product2 = (color) => {
     console.log(color);
     document.getElementById("card_contain").innerHTML = "";
-    fetch(`https://cloth-store-project-backend-api.onrender.com/shop/product/?color=${color ? color : ""}`)
+    fetch(`https://cloth-store-backend-api.vercel.app/shop/product/?color=${color ? color : ""}`)
         .then((res) => res.json())
         .then((data) => {
         console.log(data);
@@ -84,7 +84,7 @@ const display_product = (products) => {
 // add wishlist
 
 const addToWishlist = (product) => {
-    fetch('https://cloth-store-project-backend-api.onrender.com/shop/wishlist/', {
+    fetch('https://cloth-store-backend-api.vercel.app/shop/wishlist/', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -153,7 +153,7 @@ const handle_search = () => {
 }
 
 const loadColor = () => {
-    fetch("https://cloth-store-project-backend-api.onrender.com/shop/product/?color")
+    fetch("https://cloth-store-backend-api.vercel.app/shop/product/?color")
         .then((res) => res.json())
         .then((data) => {
             
