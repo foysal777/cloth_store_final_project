@@ -24,7 +24,7 @@ const handleRegister = (event) => {
     
     const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@.#$!%*?&^])[A-Za-z\d@.#$!%*?&]{8,15}$/;
     if (passwordPattern.test(password)) {
-        fetch("https://cloth-store-project-backend-api.onrender.com/shop/register/", {
+        fetch("https://cloth-store-backend-api.vercel.app/shop/register/", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(info),
@@ -74,7 +74,7 @@ const handleLogin = (event) => {
     const errorElement = document.getElementById("error2");
     console.log(username, password);
     if ((username, password)) {
-      fetch("https://cloth-store-project-backend-api.onrender.com/shop/login/", {
+      fetch("https://cloth-store-backend-api.vercel.app/shop/login/", {
         method: "POST",
         headers: { "content-type": "application/json" },
         body: JSON.stringify({ username, password }),

@@ -1,7 +1,7 @@
 const handlelogOut = () => {
     const token = localStorage.getItem("token");
   
-    fetch("https://cloth-store-project-backend-api.onrender.com/shop/logout/", {
+    fetch("https://cloth-store-backend-api.vercel.app/shop/logout/", {
       method: "POST",
       headers: {
         Authorization: `Token ${token}`,
