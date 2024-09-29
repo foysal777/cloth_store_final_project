@@ -118,6 +118,9 @@ const handleLogin = (event) => {
                 <a  class="nav-link" href="wishlist.html">Wishlist</a>
             </li>
             <li class="nav-item">
+                <a  id="adminLink" class="nav-link" href="admin.html">Admin Dashboard</a>
+            </li>
+            <li class="nav-item">
                 <a id="logoutLink" class="nav-link" href="#" onclick="handleLogout()">Logout</a>
             </li>
         `;
@@ -138,7 +141,7 @@ const handleLogout = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("user_id");
     localStorage.removeItem("username");
-    alert("Do You Want To Log Out ?")
+    alert("Do you want to logout ?")
     window.location.href = "index.html";
 };
 
@@ -155,17 +158,21 @@ document.addEventListener("DOMContentLoaded", () => {
   const registerLink = document.getElementById("registerLink");
   const loginLink = document.getElementById("loginLink");
   const logoutLink = document.getElementById("logoutLink");
+  const adminLink = document.getElementById("adminlink");
 
   if (token === "true") {
       registerLink.style.display = "none";
       loginLink.style.display = "none";
       logoutLink.style.display = "block";
+      adminLink.style.display = "block";
   } else {
       registerLink.style.display = "block";
       loginLink.style.display = "block";
       logoutLink.style.display = "none";
   }
 });
+
+
 
 // Function to handle log out
 function handleLogOut() {

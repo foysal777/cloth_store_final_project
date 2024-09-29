@@ -3,11 +3,12 @@ const getparams = () => {
 
     fetch(`https://cloth-store-backend-api.vercel.app/shop/product/${param}`)
         .then((res) => res.json())
-        .then((data) => display_details(data));
+        .then((data) =>
+            display_details(data)
+        );
 
 
 };
-
 
 
 
@@ -19,7 +20,7 @@ const display_details = (product) => {
     div.classList.add("div_containers", "d-flex", "flex-column", "flex-lg-row");
     div.innerHTML = `              
         <div class="photo_div col-12 col-sm-12 col-lg-5">
-            <img class="myphoto img-fluid" src="${product.image}" alt="not found" height="450px">
+            <img class="myphoto img-fluid" src="${product.image_url}" alt="not found" height="450px">
         </div>
 
         <div class="pro_details col-12 col-sm-12 col-lg-7">
@@ -33,7 +34,7 @@ const display_details = (product) => {
                     <h4>Size: ${product.size}</h4>
                     <h4 class="text-success" >Color: ${product.color}</h4>
                 </div>
-                <a onclick="add_to_cart('${product.name}', '${product.image}', '${product.price}', this)" class="btn btn-danger mt-3">Add to Cart</a>
+                <a onclick="add_to_cart('${product.name}', '${product.image_url}', '${product.price}', this)" class="btn btn-danger mt-3">Add to Cart</a>
             </div>
         </div>
     `;
@@ -43,6 +44,9 @@ const display_details = (product) => {
 
 
 // Review Part *************
+
+
+
 
 const load_review = () => {
     fetch("https://cloth-store-backend-api.vercel.app/shop/Review/")
@@ -78,10 +82,10 @@ const display_review = (reviews) => {
 };
 
 // add to cart  part
-const add_to_cart = (name, image, price) => {
-    const product = { name, image, price };
+const add_to_cart = (name, image_url, price) => {
+    const product = { name, image_url, price };
 
-
+   console.log(product)
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
 
@@ -103,7 +107,7 @@ const load_cart = () => {
         div.classList.add("div_class1");
         div.innerHTML = `
             <div class="card row " style="width: 10rem; ">
-                <img src="${product.image}" class="card_img" alt="...">
+                <img src="${product.image_url}" class="card_img" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">${product.name}</h5>
                     <h5 class="card-title">${product.price}</h5>
@@ -151,44 +155,44 @@ window.onload = load_cart;
 // for Review 
 
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     // Function to fetch and display the average rating
     function fetchAverageRating() {
         fetch('https://cloth-store-backend-api.vercel.app/shop/average_rating/')
-        .then(response => response.json())
-        .then(data => {
-            const avgRatingContainer = document.getElementById('average-rating');
-            avgRatingContainer.innerHTML = `<p class = text-danger display-2 >Average Rating: <strong>${data.average_rating.toFixed(2)}</strong> stars</p>`;
-        })
-        .catch(error => console.error('Error fetching average rating:', error));
+            .then(response => response.json())
+            .then(data => {
+                const avgRatingContainer = document.getElementById('average-rating');
+                avgRatingContainer.innerHTML = `<p class = text-danger display-2 >Average Rating: <strong>${data.average_rating.toFixed(2)}</strong> stars</p>`;
+            })
+            .catch(error => console.error('Error fetching average rating:', error));
     }
 
-  
-// store 
 
-function fetchReviews() {
-    fetch('https://cloth-store-backend-api.vercel.app/shop/userreviews/')
-    .then(response => response.json())
-    .then(data => {
-        const reviewsContainer = document.getElementById('reviews-container');
-        reviewsContainer.innerHTML = '<h2 class=text-danger >Recent Reviews</h2>'; 
-        data.forEach(review => {
-            const newReview = `
+    // store 
+
+    function fetchReviews() {
+        fetch('https://cloth-store-backend-api.vercel.app/shop/userreviews/')
+            .then(response => response.json())
+            .then(data => {
+                const reviewsContainer = document.getElementById('reviews-container');
+                reviewsContainer.innerHTML = '<h2 class=text-danger >Recent Reviews</h2>';
+                data.forEach(review => {
+                    const newReview = `
             
                 <div class="review mt-3 border border-2 border-danger p-3">
                     <p>Name: <strong>${review.name}</strong> <br> Rating: <strong class = text-danger>${review.star_rating}</strong> stars</p> 
                    comment:<p class = text-danger>${review.comment}</p>
                 </div>
             `;
-            reviewsContainer.innerHTML += newReview;
-        });
-    })
-    .catch(error => console.error('Error fetching reviews:', error));
-}
+                    reviewsContainer.innerHTML += newReview;
+                });
+            })
+            .catch(error => console.error('Error fetching reviews:', error));
+    }
 
-// Fetch and display the average rating and reviews on page load
-fetchAverageRating();
-fetchReviews();
+    // Fetch and display the average rating and reviews on page load
+    fetchAverageRating();
+    fetchReviews();
 
 
 
@@ -197,7 +201,7 @@ fetchReviews();
 
 
     // Handle form submission
-    document.getElementById('review-form').addEventListener('submit', function(event) {
+    document.getElementById('review-form').addEventListener('submit', function (event) {
         event.preventDefault();
 
         let name = document.getElementById('name').value;
@@ -218,22 +222,22 @@ fetchReviews();
                 comment: comment
             })
         })
-        .then(response => response.json())
-        .then(data => {
-            let reviewContainer = document.getElementById('reviews-container');
-            let newReview = `
+            .then(response => response.json())
+            .then(data => {
+                let reviewContainer = document.getElementById('reviews-container');
+                let newReview = `
                 <div class="review mt-3">
                     <p>Name: <strong>${data.name}</strong> <br> Rating: <strong class=text-danger > ${data.star_rating}</strong> stars</p> <br>
                     <p>${data.comment}</p>
                 </div>
             `;
-            reviewContainer.innerHTML += newReview;
-            document.getElementById('review-form').reset();
+                reviewContainer.innerHTML += newReview;
+                document.getElementById('review-form').reset();
 
-            // Fetch and update the average rating
-            fetchAverageRating();
-        })
-        .catch(error => console.error('Error:', error));
+                // Fetch and update the average rating
+                fetchAverageRating();
+            })
+            .catch(error => console.error('Error:', error));
     });
 
     // cokkies
