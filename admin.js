@@ -1,10 +1,4 @@
 
-
-
-
-
-
-
 document.getElementById('add_product_btn').addEventListener('click', function () {
     var productModal = new bootstrap.Modal(document.getElementById('productModal'));
     productModal.show();
@@ -89,17 +83,6 @@ document.getElementById('upload_form').addEventListener('submit', function (e) {
 });
 
 // #==============================================================
-
-
-
-// delete img 
-document.querySelectorAll('.delete-btn').forEach(button => {
-    button.addEventListener('click', function (event) {
-        event.preventDefault();
-        const card = button.closest('.card-container');
-        card.remove();
-    });
-});
 
 
 

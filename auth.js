@@ -106,35 +106,100 @@ const handleLogin = (event) => {
 
 
   // Authentication Part 
-  const checkAuthStatus = () => {
-    const token = localStorage.getItem("token") !== null;
+//   const checkAuthStatus = () => {
+//     const token = localStorage.getItem("token") !== null;
+//     const navbarMenu = document.getElementById("navbarMenu");
+
+//     if (token) {
+        
+//         navbarMenu.innerHTML = `
+           
+//             <li class="nav-item">
+//                 <a  class="nav-link" href="wishlist.html">Wishlist</a>
+//             </li>
+//             <li class="nav-item">
+//                 <a  id="adminLink" class="nav-link" href="admin.html">Admin Dashboard</a>
+//             </li>
+//             <li class="nav-item">
+//                 <a id="logoutLink" class="nav-link" href="#" onclick="handleLogout()">Logout</a>
+//             </li>
+//         `;
+//     } else {
+//         navbarMenu.innerHTML = `
+//             <li class="nav-item">
+//                 <a  id="registerLink" class="nav-link"  href="register.html">Register</a>
+//             </li>
+//             <li class="nav-item">
+//                 <a  id="loginLink" class="nav-link" href="login.html">Login</a>
+//             </li>
+//         `;
+//     }
+// };
+
+
+const checkAuthStatus = async () => {
+    const token = localStorage.getItem("token");
     const navbarMenu = document.getElementById("navbarMenu");
 
     if (token) {
+        try {
+            // Fetch user info from the backend to check if they are superuser or staff
+            const response = await fetch('https://cloth-store-backend-api.vercel.app/shop/api/user/profile/', {
+                method: 'GET',
+                headers: {
+                    Authorization: `Token ${token}`,
+                    'Content-Type': 'application/json'
+                }
+            });
+
+            if (response.ok) {
+                const userData = await response.json();
+
+                // Check if the user is superuser or staff
+                const isSuperuser = userData.is_superuser;
+                const isStaff = userData.is_staff;
+
+                let adminLink = '';
+                if (isSuperuser || isStaff) {
+                    // Show "Admin Dashboard" if the user is superuser or staff
+                    adminLink = `
+                        <li class="nav-item">
+                            <a id="adminLink" class="nav-link" href="admin.html">Admin Dashboard</a>
+                        </li>
+                    `;
+                }
+
+                navbarMenu.innerHTML = `
+                    <li class="nav-item">
+                        <a class="nav-link" href="wishlist.html">Wishlist</a>
+                    </li>
+                    ${adminLink}
+                    <li class="nav-item">
+                        <a id="logoutLink" class="nav-link" href="#" onclick="handleLogout()">Logout</a>
+                    </li>
+                `;
+            } else {
+                console.error('Failed to fetch user info');
+            }
+        } catch (error) {
+            console.error('Error:', error);
+        }
+    } else {
         
         navbarMenu.innerHTML = `
-           
             <li class="nav-item">
-                <a  class="nav-link" href="wishlist.html">Wishlist</a>
+                <a id="registerLink" class="nav-link" href="register.html">Register</a>
             </li>
             <li class="nav-item">
-                <a  id="adminLink" class="nav-link" href="admin.html">Admin Dashboard</a>
-            </li>
-            <li class="nav-item">
-                <a id="logoutLink" class="nav-link" href="#" onclick="handleLogout()">Logout</a>
-            </li>
-        `;
-    } else {
-        navbarMenu.innerHTML = `
-            <li class="nav-item">
-                <a  id="registerLink" class="nav-link"  href="register.html">Register</a>
-            </li>
-            <li class="nav-item">
-                <a  id="loginLink" class="nav-link" href="login.html">Login</a>
+                <a id="loginLink" class="nav-link" href="login.html">Login</a>
             </li>
         `;
     }
 };
+
+// Call the checkAuthStatus when the page loads
+document.addEventListener('DOMContentLoaded', checkAuthStatus);
+
 
 
 const handleLogout = () => {

@@ -35,18 +35,9 @@ const load_product2 = (color) => {
     const token = localStorage.getItem('token');
     console.log(token);
     document.getElementById("card_contain").innerHTML = "";
-    fetch(`https://cloth-store-backend-api.vercel.app/shop/product/?color=${color ? color : "" ,{
+    fetch(`https://cloth-store-backend-api.vercel.app/shop/product/?color=${color ? color : ""    
 
-        method: 'GET',
-        headers: {
-            Authorization: `Token ${token}`,
-            "Content-Type": "application/json",
-        },
-
-
-    }      
-
-    }}`)
+    }`)
         .then((res) => res.json())
         .then((data) => {
         console.log(data);
@@ -81,9 +72,10 @@ const display_product = (products) => {
                 <img src="${product.image_url}" class="dyimg" alt="...">
                 <div class="card-body">
                     <div>
-                        <h3 class="flex-grow-1 h5">${product.name}</h3>
-                        <h3 class="flex-grow-1 h5 text-danger">${product.rating} star</h3>
-                        <p class="px-2">${product.price} $</p>
+                        <h3 class="flex-grow-1 h5">Product Name : ${product.name}</h3>
+                        <h3 class="flex-grow-1 h5 text-danger"> Rating : ${product.rating} star</h3>
+                        <h5 class=" text-primary">Color : ${product.color}</h5>
+                        <h5 class="">${product.price} $</h5>
                     </div>
                     <div class="button d-flex">  
                         ${token ?`<a href="product_details.html?productId=${product.id}" class="btn btn-success btn-sm">Details</a>` : ''}
@@ -155,8 +147,8 @@ document.addEventListener('DOMContentLoaded', () => {
         li.innerHTML = `
             <div class="review_card ">
                 <img class="review_img" src="${product.image_url}" alt="not found"> <br><br>
-                  <p class = "text-danger" > ${product.rating}</p>
-                <small class="text-success"> ${product.name}</small>
+                  <p class = "text-danger" >Rating : ${product.rating} star</p>
+                <small class="text-success"> Product Name :  ${product.name}</small>
                 <p> $${product.price}</p>
               
                 <p class = "text-danger" > ${product.color}</p>

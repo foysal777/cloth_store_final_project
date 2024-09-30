@@ -40,10 +40,22 @@ const admin_product = (data) => {
                           <h3 class="flex-grow-1 h5 text-danger"> Rating : ${product.rating} star</h3>
                          <p class="px-2">${product.price} $</p>
                      </div>
-                      <button class="btn btn-success "> Delete </button>
+                          <button class="delete-btn btn-success">Delete</button>
                  </div>
               `;
         parent.appendChild(div);
+
+
+        const deleteBtn = div.querySelector('.delete-btn');
+        deleteBtn.addEventListener('click', function () {
+     
+            alert('Delete Complete');
+            
+            
+            div.remove();
+
+        });
+
     });
 };
 
