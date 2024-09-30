@@ -1,7 +1,17 @@
 const load_product = (name) => {
-
+    const token = localStorage.getItem('token');
     document.getElementById("card_contain").innerHTML = "";
-    fetch(`https://cloth-store-backend-api.vercel.app/shop/product/?name=${name ? name : ""}`)
+    fetch(`https://cloth-store-backend-api.vercel.app/shop/product/?name=${name ? name : ""}` , {
+
+        method: 'GET',
+        headers: {
+            Authorization: `Token ${token}`,
+            "Content-Type": "application/json",
+        },
+
+
+
+    })
         .then((res) => res.json())
         .then((data) => {
         console.log(data);
@@ -22,8 +32,21 @@ const load_product = (name) => {
 
 const load_product2 = (color) => {
     console.log(color);
+    const token = localStorage.getItem('token');
+    console.log(token);
     document.getElementById("card_contain").innerHTML = "";
-    fetch(`https://cloth-store-backend-api.vercel.app/shop/product/?color=${color ? color : ""}`)
+    fetch(`https://cloth-store-backend-api.vercel.app/shop/product/?color=${color ? color : "" ,{
+
+        method: 'GET',
+        headers: {
+            Authorization: `Token ${token}`,
+            "Content-Type": "application/json",
+        },
+
+
+    }      
+
+    }}`)
         .then((res) => res.json())
         .then((data) => {
         console.log(data);
@@ -46,7 +69,7 @@ const load_product2 = (color) => {
 
 
 const display_product = (products) => {
- 
+    const token = localStorage.getItem('token');
     console.log(products)
     products.forEach((product) => {
         console.log(product)
@@ -59,11 +82,11 @@ const display_product = (products) => {
                 <div class="card-body">
                     <div>
                         <h3 class="flex-grow-1 h5">${product.name}</h3>
-                        <h3 class="flex-grow-1 h5 text-danger">${product.rating}</h3>
+                        <h3 class="flex-grow-1 h5 text-danger">${product.rating} star</h3>
                         <p class="px-2">${product.price} $</p>
                     </div>
                     <div class="button d-flex">  
-                        ${token ? `<a href="product_details.html?productId=${product.id}" class="btn btn-success btn-sm">Details</a>` : ''}
+                        ${token ?`<a href="product_details.html?productId=${product.id}" class="btn btn-success btn-sm">Details</a>` : ''}
                         <a href="wishlist.html" class="add-to-wishlist">
                             <img src="images/heart2.png" alt="Wishlist" height="40px" width="40px">
                         </a> 
@@ -158,9 +181,13 @@ const handle_search = () => {
 
     load_product(value);
 }
-
+const token = localStorage.getItem('token');
 const loadColor = () => {
-    fetch("https://cloth-store-backend-api.vercel.app/shop/product/?color")
+    fetch("https://cloth-store-backend-api.vercel.app/shop/product/?color"
+
+
+
+    )
         .then((res) => res.json())
         .then((data) => {
             
