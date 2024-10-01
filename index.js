@@ -72,7 +72,7 @@ const display_product = (products) => {
                 <img src="${product.image_url}" class="dyimg" alt="...">
                 <div class="card-body">
                     <div>
-                        <h3 class="flex-grow-1 h5">Product Name : ${product.name}</h3>
+                        <h3 class="flex-grow-1 h5"> ${product.name}</h3>
                         <h3 class="flex-grow-1 h5 text-danger"> Rating : ${product.rating} star</h3>
                         <h5 class=" text-primary">Color : ${product.color}</h5>
                        <p class="">${product.price} $</p>
