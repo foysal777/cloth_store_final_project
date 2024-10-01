@@ -75,7 +75,7 @@ const display_product = (products) => {
                         <h3 class="flex-grow-1 h5">Product Name : ${product.name}</h3>
                         <h3 class="flex-grow-1 h5 text-danger"> Rating : ${product.rating} star</h3>
                         <h5 class=" text-primary">Color : ${product.color}</h5>
-                        <h5 class="">${product.price} $</h5>
+                       <p class="">${product.price} $</p>
                     </div>
                     <div class="button d-flex">  
                         ${token ?`<a href="product_details.html?productId=${product.id}" class="btn btn-success btn-sm">Details</a>` : ''}
@@ -226,7 +226,8 @@ function handle_sort() {
 }
 
 // Attach the handle_sort function to the Sort button
-document.querySelector('.btn.btn-primary').addEventListener('click', handle_sort);
+document.querySelector('.sortt').addEventListener('click', handle_sort);
+
 
 
 

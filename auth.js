@@ -139,11 +139,12 @@ const handleLogin = (event) => {
 
 const checkAuthStatus = async () => {
     const token = localStorage.getItem("token");
+    console.log(token);
     const navbarMenu = document.getElementById("navbarMenu");
-
+    
     if (token) {
         try {
-            // Fetch user info from the backend to check if they are superuser or staff
+           
             const response = await fetch('https://cloth-store-backend-api.vercel.app/shop/api/user/profile/', {
                 method: 'GET',
                 headers: {
@@ -154,6 +155,7 @@ const checkAuthStatus = async () => {
 
             if (response.ok) {
                 const userData = await response.json();
+                console.log(userData);
 
                 // Check if the user is superuser or staff
                 const isSuperuser = userData.is_superuser;
@@ -161,7 +163,7 @@ const checkAuthStatus = async () => {
 
                 let adminLink = '';
                 if (isSuperuser || isStaff) {
-                    // Show "Admin Dashboard" if the user is superuser or staff
+                   
                     adminLink = `
                         <li class="nav-item">
                             <a id="adminLink" class="nav-link" href="admin.html">Admin Dashboard</a>
