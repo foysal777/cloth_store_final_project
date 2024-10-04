@@ -29,7 +29,7 @@ const display_details = (product) => {
                 <div class="">
                     <h3 class="text-primary">Name: ${product.name}</h3>
                     <h4 class="text-danger">Review: ${product.rating}</h4>
-                    <small>Description: ${product.description}</small>
+                    <h3>Description: ${product.description}</h3>
                     <h3 class="text-danger">Price: $${product.price}</h3>
                     <h4>Size: ${product.size}</h4>
                     <h4 class="text-success" >Color: ${product.color}</h4>

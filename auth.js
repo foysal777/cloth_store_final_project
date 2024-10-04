@@ -105,7 +105,7 @@ const handleLogin = (event) => {
 
 
 
-  // Authentication Part 
+// //   Authentication Part 
 //   const checkAuthStatus = () => {
 //     const token = localStorage.getItem("token") !== null;
 //     const navbarMenu = document.getElementById("navbarMenu");
@@ -136,71 +136,83 @@ const handleLogin = (event) => {
 //     }
 // };
 
+// checkAuthStatus();
+
+
 
 const checkAuthStatus = async () => {
     const token = localStorage.getItem("token");
-    console.log(token);
+
+   
     const navbarMenu = document.getElementById("navbarMenu");
-    
+
     if (token) {
         try {
-           
-            const response = await fetch('https://cloth-store-backend-api.vercel.app/shop/api/user/profile/', {
-                method: 'GET',
+  
+            const response = await fetch("https://cloth-store-backend-api.vercel.app/shop/api/user/profile/", {
+                method: "GET",
                 headers: {
-                    Authorization: `Token ${token}`,
-                    'Content-Type': 'application/json'
+                    Authorization: `Token ${token}`, 
+                    "Content-Type": "application/json"
                 }
             });
 
+          
             if (response.ok) {
-                const userData = await response.json();
-                console.log(userData);
+                const data = await response.json(); 
+                console.log("User Data:", data); 
 
-                // Check if the user is superuser or staff
-                const isSuperuser = userData.is_superuser;
-                const isStaff = userData.is_staff;
+    
+                const adminLink = data.is_admin ? `
+                    <li class="nav-item">
+                        <a id="adminLink" class="nav-link" href="admin.html">Admin Dashboard</a>
+                    </li>
+                ` : '';
 
-                let adminLink = '';
-                if (isSuperuser || isStaff) {
-                   
-                    adminLink = `
-                        <li class="nav-item">
-                            <a id="adminLink" class="nav-link" href="admin.html">Admin Dashboard</a>
-                        </li>
-                    `;
-                }
-
+          
                 navbarMenu.innerHTML = `
                     <li class="nav-item">
                         <a class="nav-link" href="wishlist.html">Wishlist</a>
                     </li>
-                    ${adminLink}
+                     ${adminLink}
                     <li class="nav-item">
                         <a id="logoutLink" class="nav-link" href="#" onclick="handleLogout()">Logout</a>
                     </li>
                 `;
             } else {
-                console.error('Failed to fetch user info');
+               
+                console.error("Failed to fetch user profile:", response.statusText);
+                showUnauthenticatedMenu(navbarMenu);
             }
         } catch (error) {
-            console.error('Error:', error);
+     
+            console.error("Error fetching user profile:", error);
+            showUnauthenticatedMenu(navbarMenu);
         }
     } else {
-        
-        navbarMenu.innerHTML = `
-            <li class="nav-item">
-                <a id="registerLink" class="nav-link" href="register.html">Register</a>
-            </li>
-            <li class="nav-item">
-                <a id="loginLink" class="nav-link" href="login.html">Login</a>
-            </li>
-        `;
+      
+        showUnauthenticatedMenu(navbarMenu);
     }
 };
 
-// Call the checkAuthStatus when the page loads
-document.addEventListener('DOMContentLoaded', checkAuthStatus);
+
+const showUnauthenticatedMenu = (navbarMenu) => {
+    navbarMenu.innerHTML = `
+        <li class="nav-item">
+            <a id="registerLink" class="nav-link" href="register.html">Register</a>
+        </li>
+        <li class="nav-item">
+            <a id="loginLink" class="nav-link" href="login.html">Login</a>
+        </li>
+    `;
+};
+
+
+checkAuthStatus();
+
+
+
+
 
 
 
@@ -213,7 +225,7 @@ const handleLogout = () => {
 };
 
 
-document.addEventListener("DOMContentLoaded", checkAuthStatus);
+
 
 
 
