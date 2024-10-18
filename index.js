@@ -3,11 +3,11 @@ const load_product = (name) => {
     document.getElementById("card_contain").innerHTML = "";
     fetch(`https://cloth-store-backend-api.vercel.app/shop/product/?name=${name ? name : ""}` , {
 
-        method: 'GET',
-        headers: {
-            Authorization: `Token ${token}`,
-            "Content-Type": "application/json",
-        },
+        // method: 'GET',
+        // headers: {
+        //     Authorization: `Token ${token}`,
+        //     "Content-Type": "application/json",
+        // },
 
 
 
