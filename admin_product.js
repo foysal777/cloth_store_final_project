@@ -5,11 +5,11 @@ const load_post = () => {
 
     const token = localStorage.getItem('token');
     fetch("https://cloth-store-backend-api.vercel.app/shop/product/", {
-        method: 'GET',
-        headers: {
-            Authorization: `Token ${token}`,
-            "Content-Type": "application/json",
-        },
+        // method: 'GET',
+        // headers: {
+        //     Authorization: `Token ${token}`,
+        //     "Content-Type": "application/json",
+        // },
 
 
     })
